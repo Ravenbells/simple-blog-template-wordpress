@@ -1,0 +1,144 @@
+@use "mixins" as mix;
+
+#header {
+    .menu-nav {
+        font-family: mix.$font-DMSans;
+        color: mix.$color-black;
+        background-color: transparent;
+        width: 100%;
+        height: auto;
+        position: relative;
+        .menu-item {
+            display: flex;
+            padding: 0px 1em 0px 1em;
+            list-style: none;
+            font-size: 24px;
+            a {
+                text-decoration: none;
+                font-weight: 700;
+                color: mix.$color-black;
+                opacity: 0.3;
+                &:hover {
+                    color: mix.$color-grey;
+                    opacity: 0.7;
+                }
+                &.highlight {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+#home {
+    .lastest-news {
+        font-family: mix.$font-AbrilFatface;
+        .news-bar {
+            display: block;
+            width: 5%;
+            border-bottom: 5px solid mix.$color-black;
+            margin-top: 30px;
+        }
+    }
+    .content-slides {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        .content-wrapper {
+            display: flex;
+            position: relative;
+            min-height: mix.$height-card-wrapper;
+            .content-blogs {
+                display: flex;
+                margin: 0 auto;
+                position: absolute;
+                min-height: mix.$height-card-content;
+                opacity: 0;
+                &.on {
+                    opacity: 1;
+                }
+                .content-text {
+                    display: block;
+                    background-color: #fff;
+                    z-index: 1;
+                    -moz-user-select: text;
+                    -webkit-user-select: text;
+                    user-select: text;
+                    margin-top: 1.5em;
+                    p {
+                        padding: 10px;
+                    }
+                }
+            }
+            .img-thumbnail{
+                position: absolute;
+                display: block;
+                left: 80%;
+                border: none;
+                max-width: 450px;
+                max-height: 450px;
+                @media (max-width: 992px) {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .block-slides-ui {
+        display: flex;
+        width: 70%;
+        z-index: 1;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        .navegation {
+            display: flex;
+            .arrow {
+                background: url(../img/Arrow.svg), no-repeat, center;
+                background-size: cover;
+                width: 20px;
+                height: 20px;
+                display: block;
+                margin: -8px 10px;
+                cursor: pointer;
+                &.next {
+                    transform: rotate(180deg);
+                }
+            }
+            .progress-bar {
+                background-color: transparent;
+                position: relative;
+                flex-direction: row;
+                .bar {
+                    margin: 0px 3px;
+                    padding: 0px;
+                    background-color: mix.$color-grey;
+                    width: 15px;
+                    height: 3px;
+                    position: relative;
+                    display: block;
+                    border-radius: 6px;
+                    &.filled {
+                        background-color: mix.$color-black;
+                    }
+                }
+            }
+        }
+        .count-posts {
+            float: right;
+            position: relative;
+            display: block;
+            text-align: right;
+            margin-top: -50px;
+            .count {
+                color: mix.$color-black;
+                font-family: mix.$font-AbrilFatface;
+                font-size: 60px;
+                opacity: 0.1;
+            }
+        }
+    }
+}

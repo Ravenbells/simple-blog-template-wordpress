@@ -1,0 +1,15 @@
+/* COLORS */
+$color-black: #000;
+$color-white: #fff;
+$color-grey: rgb(121, 118, 118);
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+$font-DMSans: 'DM Sans', Arial, Helvetica, sans-serif;
+$font-AbrilFatface: 'Abril Fatface', cursive, sans-serif;
+
+
+/* Height */
+$height-card-content: 400px;
+$height-card-wrapper: calc($height-card-content - 12vh);
