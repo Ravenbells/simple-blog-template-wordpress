@@ -11,6 +11,7 @@
 
 <body <?php body_class(); ?>>
     <header id="header" role="menu">
+        <span class="img-bullets mt-2"></span>
         <div class="container-fluid py-5">
             <nav class="menu-nav nav navbar col-12">
                 <?php wp_nav_menu(

@@ -17,7 +17,7 @@
                 <div class="progress-bar"></div>
                 <div class="arrow next"></div>
             </div>
-            <div class="count-posts col-xl-6 col-5">
+            <div class="count-posts col-xl-6 col-md-5 col-6">
                 <span id="actual-post" class="count actual"></span>
                 <span class="count slash">/</span>
                 <span id="total-post" class="count total"></span>

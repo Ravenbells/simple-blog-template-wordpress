@@ -1,0 +1,38 @@
+@use "mixins" as mix;
+
+#posts-page {
+    .posts-content {
+        margin: 0 auto;
+        display: block;
+        font-family: mix.$font-DMSans;
+        .posts-img {
+            .posts-thumbnail {
+                max-width: 385px;
+                max-height: 553px;
+                border-radius: 20px;
+            }
+        }
+        .posts-data {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .posts-title {
+            font-size: 18px;
+            font-weight: 700;
+            a {
+                text-decoration: none;
+                color: mix.$color-black;
+                &:hover {
+                    color: mix.$color-grey;
+                }
+            }
+        }
+        .posts-author {
+            font-size: 16px;
+            font-style: italic;
+            color: mix.$color-grey-2;
+            padding-bottom: 4em;
+        }
+    }
+}

@@ -2,6 +2,10 @@
 $color-black: #000;
 $color-white: #fff;
 $color-grey: rgb(121, 118, 118);
+$color-grey-2: rgb(126, 125, 125);
+$color-light-grey: #dedede;
+$color-blue: #3969FF;
+$color-yellow: #FFDB59;
 
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
@@ -13,3 +17,5 @@ $font-AbrilFatface: 'Abril Fatface', cursive, sans-serif;
 /* Height */
 $height-card-content: 400px;
 $height-card-wrapper: calc($height-card-content - 12vh);
+$height-card-wrapper-2: calc($height-card-content - 10vh);
+$height-card-wrapper-3: calc($height-card-content + 6vh);

@@ -92,7 +92,9 @@ $(arrows).on("click", function () {
         }
     }
     dot = dotsID();
-    $(dot[0]).addClass(filled);
-    actualNumberID().innerHTML = 1;
-    totalNumberID().innerHTML = dot.length;
+    if(dot[0] != null) {
+        $(dot[0]).addClass(filled);
+        actualNumberID().innerHTML = 1;
+        totalNumberID().innerHTML = dot.length;
+    }
 })();

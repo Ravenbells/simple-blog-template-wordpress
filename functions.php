@@ -35,6 +35,30 @@ register_nav_menus(
     )
 );
 
+function all_post()
+{
+    if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <div class="col-4">
+                <div class="posts-img">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <img src="<?php the_post_thumbnail_url(); ?>" class="posts-thumbnail">
+                    <?php endif ?>
+                </div>
+                <div class="posts-data">
+                    <span><?php echo get_the_date('d F, Y'); ?></span>
+                </div>
+                <div class="posts-title">
+                    <span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
+                </div>
+                <div class="posts-author">
+                    <span>Written by <?php the_author(); ?></span>
+                </div>
+            </div>
+        <?php endwhile;
+    endif;
+}
+add_shortcode('all_post', 'all_post');
+
 function lastest_post()
 {
     $args = array(
@@ -49,7 +73,7 @@ function lastest_post()
     $count = 1;
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post(); ?>
-            <div id="blog-<?php echo $count ?>" class="content-blogs col-lg-11 col-8">
+            <div id="blog-<?php echo $count ?>" class="content-blogs col-lg-11 col-md-8 col-12">
                 <div class="content-text">
                     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                     <?php the_excerpt(); ?>
