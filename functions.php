@@ -38,7 +38,7 @@ register_nav_menus(
 function all_post()
 {
     if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <div class="col-4">
+            <div class="col-lg-4 col-12">
                 <div class="posts-img">
                     <?php if (has_post_thumbnail()) : ?>
                         <img src="<?php the_post_thumbnail_url(); ?>" class="posts-thumbnail">
