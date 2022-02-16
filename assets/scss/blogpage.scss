@@ -8,8 +8,13 @@
         .posts-img {
             .posts-thumbnail {
                 max-width: 385px;
-                max-height: 553px;
+                max-height: 360px;
                 border-radius: 20px;
+                &.grey {
+                    background-color: mix.$color-light-grey;
+                    width: 385px;
+                    height: 360px;
+                }
             }
         }
         .posts-data {

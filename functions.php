@@ -42,6 +42,8 @@ function all_post()
                 <div class="posts-img">
                     <?php if (has_post_thumbnail()) : ?>
                         <img src="<?php the_post_thumbnail_url(); ?>" class="posts-thumbnail">
+                    <?php else : ?>
+                        <div class="posts-thumbnail grey"></div>
                     <?php endif ?>
                 </div>
                 <div class="posts-data">
@@ -80,6 +82,8 @@ function lastest_post()
                 </div>
                 <?php if (has_post_thumbnail()) : ?>
                     <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
+                <?php else : ?>
+                    <div class="img-thumbnail grey"></div>
                 <?php endif ?>
             </div>
             <?php $count++; ?>

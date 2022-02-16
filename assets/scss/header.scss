@@ -4,8 +4,8 @@
     .img-bullets {
         background: url(../img/Bullets.svg), no-repeat, center;
         background-size: cover;
-        width: 169px;
-        height: 75px;
+        width: 130px;
+        height: 50px;
         display: block;
         float: right;
         top: 0;
@@ -22,6 +22,9 @@
             padding: 0px 1em 0px 1em;
             list-style: none;
             font-size: 24px;
+            @media (max-width: 430px) {
+                flex-direction: column;
+            }
             a {
                 text-decoration: none;
                 font-weight: 700;
