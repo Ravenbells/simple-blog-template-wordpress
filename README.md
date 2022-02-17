@@ -20,9 +20,7 @@ O que você vai precisar:
 
 5. Instalar pacotes [PHP](https://github.com/php/php-src);
 
-   Você pode fazer o download normalmente nos links disponibilizados, como também instalando pacotes diretamente no terminal.
-
-   Se desejar instalar diretamente no terminal. Atualize seu repositório Linux antes de começar a instalar os pacotes.
+   Você pode fazer o download normalmente nos links disponibilizados, como também instalando pacotes diretamente no terminal. Se desejar instalar diretamente no terminal. Atualize seu repositório Linux antes de começar a instalar os pacotes.
 
    ```bash
    sudo apt update
@@ -144,10 +142,21 @@ CREATE DATABASE database_name
 sudo mysql -u root -p database_name < navas_template*.sql
 ```
 
-Usário Wordpress:
+> Usário Wordpress:
+>
+> - Teste
+>
+> Senha Wordpress:
+>
+> - admin_navas
 
-- Teste
+# Inserindo o Tema
 
-Senha Wordpress:
+agora você pode baixar o tema na pasta de temas do Wordpress, simplesmente utilizando os seguintes comandos:
 
-- admin_navas
+```bash
+cd ~/minha_pasta_wordpress/wp-content/themes
+mkdir simple_theme && cd simple_theme
+git clone https://github.com/Ravenbells/simple-blog-template-wordpress.git
+```
+
