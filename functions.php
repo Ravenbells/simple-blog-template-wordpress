@@ -35,6 +35,7 @@ register_nav_menus(
     )
 );
 
+//ALL BLOGS
 function all_post()
 {
     if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -61,6 +62,7 @@ function all_post()
 }
 add_shortcode('all_post', 'all_post');
 
+//POSTS
 function single_post()
 {
     if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -84,7 +86,9 @@ function single_post()
                             </div>
                         </div>
                         <div class="bttn-back col-xl-10 col-lg-7 col-5">
-                            <button class="blogs-back">Voltar</button>
+                            <a class="blogs-back" href="<?php echo get_the_permalink(2); ?>">
+                                <button class="bttn-back">Voltar</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -102,6 +106,7 @@ function single_post()
 }
 add_shortcode('single_post', 'single_post');
 
+//HOME PAGE
 function lastest_post()
 {
     $args = array(
@@ -128,9 +133,29 @@ function lastest_post()
                 <?php endif ?>
             </div>
             <?php $count++; ?>
-<?php endwhile;
+    <?php endwhile;
     endif;
 }
 add_shortcode('lastest-post', 'lastest_post');
+
+//Navegation
+function Breadcrumb_posts()
+{
+    ?>
+    <ul class="list-breadcrumb">
+        <a href="<?php echo get_home_url(); ?>">Home</a>
+    </ul>
+    <?php if (!is_page()) : ?>
+        <ul class="list-breadcrumb">
+            <a href="<?php echo get_the_permalink(2); ?>">Blogs</a>
+        </ul>
+    <?php endif;
+    if (is_single()) : ?>
+        <ul class="list-breadcrumb final">
+            <a href="<?php the_permalink(); ?>">Blog Post</a>
+        </ul>
+<?php endif;
+}
+add_shortcode('Breadcrumb_posts', 'Breadcrumb_posts');
 
 ?>

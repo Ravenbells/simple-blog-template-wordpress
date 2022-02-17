@@ -1,5 +1,4 @@
-<?php get_header(); ?>
-
+<?php require("components/custom-header.php"); ?>
 <section id="single">
     <div class="container">
         <div class="row">
@@ -7,5 +6,4 @@
         </div>
     </div>
 </section>
-
-    <?php get_footer(); ?>
+<?php get_footer(); ?>

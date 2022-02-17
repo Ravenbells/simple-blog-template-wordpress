@@ -10,6 +10,60 @@
         float: right;
         top: 0;
     }
+    .draw-circle {
+        display: inline-block;
+        &:after {
+            content: "";
+            position: absolute;
+            background-color: mix.$color-yellow;
+            border-radius: 50%;
+            width: 330px;
+            height: 330px;
+            display: block;
+            float: right;
+            top: -12%;
+            right: -8em;
+            clip: rect(0px, 200px, 330px, 0px);
+        }
+    }
+    .blog-post-title {
+        font-size: 42px;
+        font-weight: 700;
+    }
+    .blog-post-title, .menu-breadcrumb {
+        font-family: mix.$font-DMSans;
+    }   
+    .menu-breadcrumb {
+        display: flex;
+        position: relative;
+        .list-breadcrumb {
+            padding: 8px;
+            &:after {
+                content: "";
+                background: url(../img/Arrow-small.svg), no-repeat, center;
+                background-size: cover;
+                position: relative;
+                width: 9px;
+                height: 12px;
+                left: 5px;
+                display: inline-block;
+                transform: rotate(180deg);
+                opacity: 0.5;
+            }
+            &.final {
+                &:after {
+                    display: none;
+                }
+            }
+            a {
+                text-decoration: none;
+                color: mix.$color-grey-2;
+                &:hover {
+                    color: mix.$color-black;
+                }
+            }
+        }
+    }
     .menu-nav {
         font-family: mix.$font-DMSans;
         color: mix.$color-black;

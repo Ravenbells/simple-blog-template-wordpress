@@ -12,6 +12,58 @@
   float: right;
   top: 0;
 }
+#header .draw-circle {
+  display: inline-block;
+}
+#header .draw-circle:after {
+  content: "";
+  position: absolute;
+  background-color: #FFDB59;
+  border-radius: 50%;
+  width: 330px;
+  height: 330px;
+  display: block;
+  float: right;
+  top: -12%;
+  right: -8em;
+  clip: rect(0px, 200px, 330px, 0px);
+}
+#header .blog-post-title {
+  font-size: 42px;
+  font-weight: 700;
+}
+#header .blog-post-title, #header .menu-breadcrumb {
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+#header .menu-breadcrumb {
+  display: flex;
+  position: relative;
+}
+#header .menu-breadcrumb .list-breadcrumb {
+  padding: 8px;
+}
+#header .menu-breadcrumb .list-breadcrumb:after {
+  content: "";
+  background: url(../img/Arrow-small.svg), no-repeat, center;
+  background-size: cover;
+  position: relative;
+  width: 9px;
+  height: 12px;
+  left: 5px;
+  display: inline-block;
+  transform: rotate(180deg);
+  opacity: 0.5;
+}
+#header .menu-breadcrumb .list-breadcrumb.final:after {
+  display: none;
+}
+#header .menu-breadcrumb .list-breadcrumb a {
+  text-decoration: none;
+  color: #7e7d7d;
+}
+#header .menu-breadcrumb .list-breadcrumb a:hover {
+  color: #000;
+}
 #header .menu-nav {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
   color: #000;
@@ -354,6 +406,9 @@
   }
 }
 
+#single {
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
 #single .info-content .info-fixed {
   position: fixed;
   height: 100%;
@@ -399,14 +454,17 @@
   height: 35px;
 }
 #single .info-content .info-fixed .user-info .bttn-back .blogs-back {
+  width: 60%;
+}
+#single .info-content .info-fixed .user-info .bttn-back .blogs-back .bttn-back {
   display: block;
   float: right;
-  width: 60%;
   background-color: #fff;
   border: 1px solid #dedede;
   border-radius: 10px;
+  width: 100%;
 }
-#single .info-content .info-fixed .user-info .bttn-back .blogs-back:after {
+#single .info-content .info-fixed .user-info .bttn-back .blogs-back .bttn-back:after {
   content: "";
   background: url(../img/Arrow-small.svg), no-repeat, center;
   background-size: cover;
@@ -418,7 +476,7 @@
   left: 15px;
   margin-top: 5px;
 }
-#single .info-content .info-fixed .user-info .bttn-back .blogs-back:hover {
+#single .info-content .info-fixed .user-info .bttn-back .blogs-back .bttn-back:hover {
   background-color: #dedede;
 }
 #single .posts-text {

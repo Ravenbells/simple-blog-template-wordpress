@@ -1,6 +1,7 @@
 @use "mixins" as mix;
 
 #single {
+    font-family: mix.$font-DMSans;
     .info-content {
         .info-fixed {
             position: fixed;
@@ -49,26 +50,29 @@
                     justify-content: end;
                     height: 35px;
                     .blogs-back {
-                        display: block;
-                        float: right;
                         width: 60%;
-                        background-color: mix.$color-white;
-                        border: 1px solid mix.$color-light-grey;
-                        border-radius: 10px;
-                        &:after {
-                            content: "";
-                            background: url(../img/Arrow-small.svg), no-repeat, center;
-                            background-size: cover;
-                            position: relative;
-                            width: 10px;
-                            height: 15px;
+                        .bttn-back {
                             display: block;
-                            float: left;
-                            left: 15px;
-                            margin-top: 5px;
-                        }
-                        &:hover {
-                            background-color: mix.$color-light-grey;
+                            float: right;
+                            background-color: mix.$color-white;
+                            border: 1px solid mix.$color-light-grey;
+                            border-radius: 10px;
+                            width: 100%;
+                            &:after {
+                                content: "";
+                                background: url(../img/Arrow-small.svg), no-repeat, center;
+                                background-size: cover;
+                                position: relative;
+                                width: 10px;
+                                height: 15px;
+                                display: block;
+                                float: left;
+                                left: 15px;
+                                margin-top: 5px;
+                            }
+                            &:hover {
+                                background-color: mix.$color-light-grey;
+                            }
                         }
                     }
                 }
