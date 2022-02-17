@@ -24,6 +24,10 @@
             font-size: 24px;
             @media (max-width: 430px) {
                 flex-direction: column;
+                right: 12%;
+                position: relative;
+                width: 100%;
+                margin: 0 auto;
             }
             a {
                 text-decoration: none;

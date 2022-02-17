@@ -1,0 +1,93 @@
+@use "mixins" as mix;
+
+#single {
+    .info-content {
+        .info-fixed {
+            position: fixed;
+            height: 100%;
+            .posts-img {
+                .posts-thumbnail {
+                    max-width: 483px;
+                    max-height: 483px;
+                    width: 100%;
+                }
+            }
+            .user-info {
+                color: mix.$color-black;
+                margin-top: 30px;
+                display: inline-flex;
+                .user-avatar {
+                    .avatar {
+                        border: 3px solid #000;
+                        border-radius: 45px;
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+                .posts-author
+                {
+                    left: 5px;
+                    position: relative;
+                    .posts-info {
+                        margin-top: 5px;
+                        display: block;
+                        position: relative;
+                        text-align: left;
+                        .author {
+                            font-size: 18px;
+                            font-weight: 700;
+                        }
+                        .data {
+                            font-size: 16px;
+                            color: mix.$color-grey-2;
+                            display: block;
+                        }
+                    }
+                }
+                .bttn-back {
+                    display: inline-flex;
+                    justify-content: end;
+                    height: 35px;
+                    .blogs-back {
+                        display: block;
+                        float: right;
+                        width: 60%;
+                        background-color: mix.$color-white;
+                        border: 1px solid mix.$color-light-grey;
+                        border-radius: 10px;
+                        &:after {
+                            content: "";
+                            background: url(../img/Arrow-small.svg), no-repeat, center;
+                            background-size: cover;
+                            position: relative;
+                            width: 10px;
+                            height: 15px;
+                            display: block;
+                            float: left;
+                            left: 15px;
+                            margin-top: 5px;
+                        }
+                        &:hover {
+                            background-color: mix.$color-light-grey;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .posts-text {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        .posts-title {
+            font-size: 32px;
+            font-weight: 700;
+            width: 90%;
+            margin-bottom: 30px;
+        }
+        .posts-content-all {
+            font-size: 16px;
+            color: mix.$color-grey-2;
+        }
+    }    
+}

@@ -59,6 +59,7 @@
                     user-select: text;
                     margin-top: 1.5em;
                     padding: 10px;
+                    width: 100%;
                     h3 {
                         color: mix.$color-blue;
                         font-size: 32px;
@@ -85,6 +86,7 @@
                         position: absolute;
                         display: flex;
                         flex-direction: column;
+                        margin-top: 5em;
                     }
                 }
             }
@@ -96,7 +98,6 @@
                 max-width: 450px;
                 max-height: 420px;
                 &.grey {
-                    background-color: mix.$color-light-grey;
                     width: 450px;
                     height: 420px;
                 }

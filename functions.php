@@ -43,7 +43,7 @@ function all_post()
                     <?php if (has_post_thumbnail()) : ?>
                         <img src="<?php the_post_thumbnail_url(); ?>" class="posts-thumbnail">
                     <?php else : ?>
-                        <div class="posts-thumbnail grey"></div>
+                        <img src="wp-content/themes/navas-template/assets/img/img-grey.jpg" class="posts-thumbnail grey">
                     <?php endif ?>
                 </div>
                 <div class="posts-data">
@@ -60,6 +60,47 @@ function all_post()
     endif;
 }
 add_shortcode('all_post', 'all_post');
+
+function single_post()
+{
+    if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <div class="info-content d-flex flex-column justify-content-start col-6">
+                <div class="info-fixed">
+                    <div class="posts-img">
+                        <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php the_post_thumbnail_url(); ?>" class="posts-thumbnail">
+                        <?php else : ?>
+                            <img src="wp-content/themes/navas-template/assets/img/img-grey.jpg" class="img-thumbnail grey">
+                        <?php endif ?>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <?php echo get_avatar(get_the_author_meta("ID")); ?>
+                        </div>
+                        <div class="posts-author col-8">
+                            <div class="posts-info">
+                                <span class="author"><?php echo get_the_author_meta("display_name"); ?></span>
+                                <span class="data"><?php echo get_the_date('d F, Y'); ?></span>
+                            </div>
+                        </div>
+                        <div class="bttn-back col-xl-10 col-lg-7 col-5">
+                            <button class="blogs-back">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="posts-text col-6">
+                <div class="posts-title">
+                    <span><?php the_title(); ?></span>
+                </div>
+                <div class="posts-content-all">
+                    <span><?php echo get_the_content(); ?></span>
+                </div>
+            </div>
+        <?php endwhile;
+    endif;
+}
+add_shortcode('single_post', 'single_post');
 
 function lastest_post()
 {
@@ -83,13 +124,13 @@ function lastest_post()
                 <?php if (has_post_thumbnail()) : ?>
                     <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
                 <?php else : ?>
-                    <div class="img-thumbnail grey"></div>
+                    <img src="wp-content/themes/navas-template/assets/img/img-grey.jpg" class="img-thumbnail grey">
                 <?php endif ?>
             </div>
             <?php $count++; ?>
 <?php endwhile;
     endif;
 }
-
 add_shortcode('lastest-post', 'lastest_post');
+
 ?>
