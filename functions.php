@@ -31,7 +31,7 @@ add_theme_support('menus');
 register_nav_menus(
     array(
         'top-menu' => __('Cabeçalho', 'theme'),
-        'footer-menu' => __('Rodapé', 'theme'),
+        /* 'footer-menu' => __('Rodapé', 'theme'), */
     )
 );
 
@@ -85,10 +85,10 @@ function single_post()
                                 <span class="data"><?php echo get_the_date('d F, Y'); ?></span>
                             </div>
                         </div>
-                        <div class="bttn-back col-xl-10 col-lg-7 col-5">
-                            <a class="blogs-back" href="<?php echo get_the_permalink(2); ?>">
-                                <button class="bttn-back">Voltar</button>
-                            </a>
+                        <div class="bttn-back col-xl-10 col-lg-7 col-12">
+                            <span class="blogs-back">
+                                <button class="bttn" onclick="Going_Back()">Voltar</button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -152,10 +152,20 @@ function Breadcrumb_posts()
     <?php endif;
     if (is_single()) : ?>
         <ul class="list-breadcrumb final">
-            <a href="<?php the_permalink(); ?>">Blog Post</a>
+            <p>Blog Post</p>
         </ul>
 <?php endif;
 }
 add_shortcode('Breadcrumb_posts', 'Breadcrumb_posts');
+
+//Current Page
+function Current_Page() {
+    if(is_front_page()) : 
+        echo '<span class="home-hl"></span>'?>
+    <?php elseif(is_home()) :
+        echo '<span class="blog-hl"></span>' ?>
+    <?php endif;
+}
+add_action("Current_Page", "Current_Page");
 
 ?>

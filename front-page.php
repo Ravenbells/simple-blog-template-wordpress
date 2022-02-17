@@ -1,5 +1,6 @@
 <!-- Header -->
 <?php get_header(); ?>
+<?php do_action("Current_Page", "Current_Page"); ?>
 <main id="home">
     <!-- Pages  -->
     <?php the_post_thumbnail(); ?>

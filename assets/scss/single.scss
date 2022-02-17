@@ -3,37 +3,69 @@
 #single {
     font-family: mix.$font-DMSans;
     .info-content {
+        @media (max-width: 600px) {
+            width: 100%;
+        }
         .info-fixed {
             position: fixed;
             height: 100%;
+            width: 35%;
+            @media (max-width: 600px) {
+                width: 100%;
+                position: relative;
+            }
             .posts-img {
                 .posts-thumbnail {
                     max-width: 483px;
                     max-height: 483px;
                     width: 100%;
+                    @media (max-width: 600px) {
+                        margin: 0 auto;
+                        display: block;
+                    }
                 }
             }
             .user-info {
                 color: mix.$color-black;
                 margin-top: 30px;
                 display: inline-flex;
+                @media (max-width: 1200px) {
+                    width: 60%;
+                }
+                @media (max-width: 992px) {
+                    display: inline-block;
+                    width: 100%;
+                }
                 .user-avatar {
                     .avatar {
                         border: 3px solid #000;
                         border-radius: 45px;
                         width: 60px;
                         height: 60px;
+                        @media (max-width: 992px) {
+                            width: 7vw;
+                            height: 7vw;
+                            margin: 0 auto;
+                            display: block;
+                        }
                     }
                 }
                 .posts-author
                 {
                     left: 5px;
                     position: relative;
+                    @media (max-width: 992px) {
+                        width: 100%; 
+                        left: 0;
+                    }
                     .posts-info {
                         margin-top: 5px;
                         display: block;
                         position: relative;
                         text-align: left;
+                        @media (max-width: 992px) {
+                            text-align: center;
+                        }
                         .author {
                             font-size: 18px;
                             font-weight: 700;
@@ -47,17 +79,27 @@
                 }
                 .bttn-back {
                     display: inline-flex;
-                    justify-content: end;
+                    justify-content: left;
                     height: 35px;
+                    @media (max-width: 992px) {
+                        justify-content: center;
+                        height: 50px;
+                    }
                     .blogs-back {
-                        width: 60%;
-                        .bttn-back {
+                        width: 100%;
+                        @media (max-width: 992px) {
+                            width: 33vw;
+                            margin-top: 10px;
+                            display: flex;
+                        }
+                        .bttn {
                             display: block;
                             float: right;
                             background-color: mix.$color-white;
                             border: 1px solid mix.$color-light-grey;
                             border-radius: 10px;
-                            width: 100%;
+                            width: 60%;
+                            height: 41px;
                             &:after {
                                 content: "";
                                 background: url(../img/Arrow-small.svg), no-repeat, center;
@@ -69,9 +111,21 @@
                                 float: left;
                                 left: 15px;
                                 margin-top: 5px;
+                                @media (max-width: 400px) {
+                                    left: 0;
+                                }
                             }
                             &:hover {
                                 background-color: mix.$color-light-grey;
+                            }
+                            @media (max-width: 1200px) {
+                                width: 11vw;
+                            }
+                            @media (max-width: 992px) {
+                                width: 100%;
+                                display: block;
+                                position: relative;
+                                
                             }
                         }
                     }
@@ -83,6 +137,15 @@
         display: flex;
         position: relative;
         flex-direction: column;
+        @media (max-width: 992px) {
+            left: 2em;
+        }
+        @media (max-width: 600px) {
+            left: 0;
+            width: 100%;
+            margin: 45px auto;
+            padding: 0px 50px;
+        }
         .posts-title {
             font-size: 32px;
             font-weight: 700;

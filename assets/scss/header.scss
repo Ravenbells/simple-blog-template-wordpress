@@ -24,6 +24,7 @@
             top: -12%;
             right: -8em;
             clip: rect(0px, 200px, 330px, 0px);
+            z-index: -2;
         }
     }
     .blog-post-title {
@@ -36,8 +37,15 @@
     .menu-breadcrumb {
         display: flex;
         position: relative;
+        @media (max-width: 600px) {
+            display: block;
+            line-height: 0.8;
+        }
         .list-breadcrumb {
             padding: 8px;
+            @media (max-width: 600px) {
+                padding-top: 0px;
+            }
             &:after {
                 content: "";
                 background: url(../img/Arrow-small.svg), no-repeat, center;
@@ -55,9 +63,11 @@
                     display: none;
                 }
             }
-            a {
+            a, p {
                 text-decoration: none;
                 color: mix.$color-grey-2;
+            }
+            a {
                 &:hover {
                     color: mix.$color-black;
                 }

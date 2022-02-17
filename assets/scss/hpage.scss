@@ -73,6 +73,12 @@
                         width: 82%;
                         margin-top: 30px;
                         line-height: 2;
+                        @media (max-width: 1400px) {
+                            line-height: 1.5;
+                        }
+                        @media (max-width: 1200px) {
+                            line-height: 2;
+                        }
                     }
                     @media (max-width: 1200px) {
                         min-height: 55vh;
