@@ -82,24 +82,25 @@ Para configurar MySQL e funcionar junto com seu servidor, escreva o seguinte com
 sudo mysql_secure_installation
 ```
 
-- > Enter current password for root (enter for node): 
+Algumas opções de configuração vão surgir no terminal para definir uma confirmação padrão, baseada em suas escolhas.
+
+- *Enter current password for root (enter for node):* 
 
 Se você nunca instalou um servidor anteriormente, não haverá senha do root, apenas pressione enter para continuar.
 
-- > Set root password? [Y/n] Y
+- *Set root password? [Y/n] Y*
 
-Digite "Y" pra configurar uma senha para o root.
+Digite 'Y' pra configurar uma senha para o root.
 
-> - Remove anonymous user? [Y/n] Y
-> - Disallow root login remotely? [Y/n] Y
-> - Remove test database and acces to it? [Y/n] Y
->
+- *Remove anonymous user? [Y/n] Y*
+- *Disallow root login remotely? [Y/n] Y*
+- *Remove test database and acces to it? [Y/n] Y*
 
-Digite "Y" para prevenir que usuários anônimos se conectem a sua base de dados, que não haja acesso remoto e para remover sua database de teste. É uma medida de segurança, se desejar utilizar o servidor ainda como teste, apenas digite "n".
+Digite 'Y' para prevenir que usuários anônimos se conectem a sua base de dados, que não haja acesso remoto e para remover sua database de teste. É uma medida de segurança, se desejar utilizar o servidor ainda como teste, apenas digite 'n'.
 
-- > Reload privilege tables now? [Y/n] Y
+- *Reload privilege tables now? [Y/n] Y*
 
-Digite "Y" para atualizar suas mudanças na base de dados.
+Digite 'Y' para atualizar suas mudanças na base de dados.
 
 
 
@@ -111,17 +112,19 @@ sudo apt install php php-mysql php-cgi php-cli php-gd  -y
 
 # Configuração
 
-Caso você ainda não tenha extraído o **.zip**,  faça isso agora na pasta que desejar:
+Caso você ainda não tenha extraído o **.zip**,  faça isso em uma pasta **com o nome a seguir**:
 
 ```bash
-unzip -q wordpress*.zip -d ~/minha_pasta_wordpress
+mkdir work && cd work
+mkdir navas-test && cd navas-test
+unzip -q wordpress*.zip -d work/navas-test
 ```
 
-Crie o link simbólico, com o nome que desejar, na pasta de repositórios do Apache2:
+Crie o link simbólico, com o nome **work** na pasta de repositórios do Apache2:
 
 ```bash
 cd /var/www/html
-ln -s ~/minha_pasta_wordpress nome_pasta_link_simbólico
+sudo ln -s minha_pasta_wordpress : 'nome deve ser work' nome_pasta_link_simbólico : 'nome deve ser work'
 ```
 
 Reinicie o Apache2 e mude a propriedade de usuário na pasta de repositórios do Apache2:
@@ -133,16 +136,33 @@ sudo chown -R www-data:www-data /var/www/*
 
 Se desejar, você pode utilizar o banco de dados de teste, com usário de teste e posts de exemplo postados. O arquivo se encontra na pasta **bd** do tema inserido.
 
-> Antes de importar um database e/ou de continuar com a configuração do Wordpress, crie primeiramente um database.
+> Antes de importar um database e/ou de continuar com a configuração do Wordpress, crie primeiramente um database e um usuário. Garanta que este usuário tenha todos os privilégios no database, senão a criação do wordpress não poderá ser concluída.
 
 ```mysql
 -- use este comando no terminal para acessar seu database:
--- mysql -u root -p
-CREATE DATABASE database_name
+-- sudo mysql -u root -p
+CREATE DATABASE database_name;
+USE database_name;
+CREATE USER "wordpress_teste"@"%" identified by "password";
+GRANT ALL PRIVILEGES ON database_name.* TO "wordpress_teste"@"%";
 ```
 
+# Inserindo o Tema
+
+
+Agora você pode baixar o tema na pasta de temas do Wordpress. Vá até a pasta *work/navas-test*, baixe o projeto e altere o nome original do novo arquivo para **navas-template**:
+
 ```bash
-sudo mysql -u root -p database_name < navas_template*.sql
+cd work/navas-test
+cd ~/work/navas-test/wp-content/themes
+git clone https://github.com/Ravenbells/simple-blog-template-wordpress.git
+mv simple-blog-template-wordpress navas-template
+```
+
+O comando abaixo importa todas as tabelas do tema para o seu database.
+
+```bash
+sudo mysql -u root -p database_name < work/navas-test/wp-content/themes/navas-template/bd/navas_template*.sql
 ```
 
 > Usário Wordpress:
@@ -152,24 +172,12 @@ sudo mysql -u root -p database_name < navas_template*.sql
 > Senha Wordpress:
 >
 > - admin_navas
+>
+> Prefixo das tabelas:
+>
+> - nt_
 
-# Inserindo o Tema
-
-
-agora você pode baixar o tema na pasta de temas do Wordpress, simplesmente utilizando os seguintes comandos:
-
-```bash
-cd ~/minha_pasta_wordpress/wp-content/themes
-git clone https://github.com/Ravenbells/simple-blog-template-wordpress.git
-```
-
-crie um arquivo **wp-config.php** no diretório principal (raíz/root) do Wordpress:
-
-```bash
-touch wp-config.php
-```
-
-termine a configuração do database no seu localhost. Você pode acessar usando localhost/minha_pasta_wordpress ou com o IP/minha_pasta_wordpress. Para acessar com o IP da sua máquina, use o endereço seguido de **inet** que é exibido no terminal com o comando **ifconfig**:
+Termine a configuração do database no seu localhost. Você pode acessar usando *localhost/work/navas-test* ou com o *IP/work/navas-test*. Para acessar com o IP da sua máquina, use o endereço seguido de **inet** que é exibido no terminal com o comando **ifconfig**:
 
 ```bash
 ifconfig
@@ -177,7 +185,19 @@ enp0s31f6: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.0.15  netmask 255.255.255.0  broadcast 192.168.0.255
 ```
 
-Quando terminar a configuração do Wordpress, adicione as seguintes linhas em **wp-config.php** no final do documento:
+A imagem a seguir só mostra um exemplo de como você irá definir as configurações. O nome de seu database, nome de usuário e senha ficam a seu critério. Você deve **manter obrigatoriamente** o host (localhost) e o prefixo da tabela (nt_).
+
+<img src="wp-img/wordpress.png" alt="wordpress" style="zoom: 67%;" />
+
+O Wordpress irá informar que é impossível escrever em **wp-config.php**. Copie todo o código que está na caixa cinza e crie o arquivo manualmente no diretório do Wordpress. O arquivo **wp-config.php** deve ficar no diretório principal (raíz/root) da pasta.
+
+<img src="wp-img/wordpress2.png" alt="wordpress2" style="zoom:67%;" />
+
+```bash
+touch wp-config.php
+```
+
+Quando terminar a configuração do Wordpress, adicione as seguintes linhas em **wp-config.php**, no final do documento:
 
 ```php
 define('FS_METHOD','direct');
@@ -185,3 +205,9 @@ define(	'UPLOADS', 'wp-content/uploads'	);
 ```
 
 A primeira linha lhe permitirá acesso direto a sua database, e portanto, poderá trocar configurações de segurança e instalar plugins. A segunda linha irá definir a pasta de uploads para guardar arquivos provenientes da galeria.
+
+Se notar que ainda há erros de alterações de segurança ou de uploads de imagem, use novamente o comando abaixo no **caminho orignal** da pasta **work**. Sem ser no caminho do link simbólico:
+
+```bash
+sudo chown -R www-data:www-data work/*
+```
