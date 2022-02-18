@@ -72,7 +72,7 @@ function single_post()
                         <?php if (has_post_thumbnail()) : ?>
                             <img src="<?php the_post_thumbnail_url(); ?>" class="posts-thumbnail">
                         <?php else : ?>
-                            <img src="wp-content/themes/navas-template/assets/img/img-grey.jpg" class="img-thumbnail grey">
+                            <img src="wp-content/themes/navas-template/assets/img/img-grey.jpg" class="posts-thumbnail grey">
                         <?php endif ?>
                     </div>
                     <div class="user-info">

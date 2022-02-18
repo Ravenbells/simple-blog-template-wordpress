@@ -23,6 +23,11 @@
                         margin: 0 auto;
                         display: block;
                     }
+                    &.grey {
+                        @media (max-width: 992px) {
+                            margin: 0 auto;
+                        }
+                    }
                 }
             }
             .user-info {
