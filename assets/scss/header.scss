@@ -1,5 +1,9 @@
 @use "mixins" as mix;
 
+.hidden-x {
+    overflow-x: hidden;
+}
+
 #header {
     .img-bullets {
         background: url(../img/Bullets.svg), no-repeat, center;

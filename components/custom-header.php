@@ -9,7 +9,7 @@
     <title>Navas-Blogs</title>
 </head>
 
-<body <?php body_class(); ?>>
+<body class="hidden-x" <?php body_class(); ?>>
     <header id="header" role="menu">
         <span class="draw-circle"></span>
         <div class="container-fluid py-5">
