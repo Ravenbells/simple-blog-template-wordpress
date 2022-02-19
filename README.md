@@ -112,19 +112,19 @@ sudo apt install php php-mysql php-cgi php-cli php-gd  -y
 
 # Configuração
 
-Caso você ainda não tenha extraído o **.zip**,  faça isso em uma pasta **com o nome a seguir**:
+Caso você ainda não tenha extraído o **.zip**,  crie uma pasta com o nome que desejar e um subfolder **com o nome a seguir**:
 
 ```bash
-mkdir work && cd work
+mkdir minha_pasta_wordpress && cd minha_pasta_wordpress
 mkdir navas-test && cd navas-test
-unzip -q wordpress*.zip -d work/navas-test
+unzip -q wordpress*.zip -d minha_pasta_wordpress/navas-test
 ```
 
-Crie o link simbólico, com o nome **work** na pasta de repositórios do Apache2:
+Depois crie o link simbólico com o nome **work** na pasta de repositórios do Apache2:
 
 ```bash
 cd /var/www/html
-sudo ln -s minha_pasta_wordpress : 'nome deve ser work' nome_pasta_link_simbólico : 'nome deve ser work'
+sudo ln -s minha_pasta_wordpress work
 ```
 
 Reinicie o Apache2 e mude a propriedade de usuário na pasta de repositórios do Apache2:
@@ -153,8 +153,7 @@ GRANT ALL PRIVILEGES ON database_name.* TO "wordpress_teste"@"%";
 Agora você pode baixar o tema na pasta de temas do Wordpress. Vá até a pasta *work/navas-test*, baixe o projeto e altere o nome original do novo arquivo para **navas-template**:
 
 ```bash
-cd work/navas-test
-cd ~/work/navas-test/wp-content/themes
+cd work/navas-test/wp-content/themes
 git clone https://github.com/Ravenbells/simple-blog-template-wordpress.git
 mv simple-blog-template-wordpress navas-template
 ```
@@ -165,7 +164,7 @@ O comando abaixo importa todas as tabelas do tema para o seu database.
 sudo mysql -u root -p database_name < work/navas-test/wp-content/themes/navas-template/bd/navas_template*.sql
 ```
 
-> Usário Wordpress:
+> Usuário Wordpress:
 >
 > - Teste
 >
@@ -192,6 +191,8 @@ A imagem a seguir só mostra um exemplo de como você irá definir as configura�
 O Wordpress irá informar que é impossível escrever em **wp-config.php**. Copie todo o código que está na caixa cinza e crie o arquivo manualmente no diretório do Wordpress. O arquivo **wp-config.php** deve ficar no diretório principal (raíz/root) da pasta.
 
 <img src="wp-img/wordpress2.png" alt="wordpress2" style="zoom:67%;" />
+
+Você pode criar o arquivo com o seguinte comando:
 
 ```bash
 touch wp-config.php
