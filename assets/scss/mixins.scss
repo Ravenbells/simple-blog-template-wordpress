@@ -16,6 +16,6 @@ $font-AbrilFatface: 'Abril Fatface', cursive, sans-serif;
 
 /* Height */
 $height-card-content: 400px;
-$height-card-wrapper: calc($height-card-content - 12vh);
-$height-card-wrapper-2: calc($height-card-content - 10vh);
-$height-card-wrapper-3: calc($height-card-content + 6vh);
+$height-card-wrapper: calc($height-card-content - 8em);
+$height-card-wrapper-2: calc($height-card-content - 10em);
+$height-card-wrapper-3: calc($height-card-content + 5em);
